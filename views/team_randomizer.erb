@@ -1,0 +1,20 @@
+
+<form method="post">
+  <label for="names"> Please enter names
+  <textarea id="names" name="names"></textarea>
+  <label for="numbers"> How many groups do you want?
+  <input type = "numbers" id="numbers" name = "numbers">
+
+  <input type="submit" value = "generate groups">
+</form>
+<!-- <%= @names %> -->
+<% if @error == true %>
+<%= "More groups than students"  %>
+<%   end %>
+
+<% @tournament.each_with_index do |t, index| %>
+  <% unless t.empty? %>
+    <p>Team <%= index  %>:
+      <%= t.map { |t| t  }.join(", ")  %></p>
+  <% end %>
+<% end %>
